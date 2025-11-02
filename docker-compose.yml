@@ -12,6 +12,8 @@ services:
       - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+    networks:
+      - app-network   # 👈 Added this line
 
   app:
     build: .
@@ -35,3 +37,5 @@ volumes:
 
 networks:
   app-network:
+    driver: bridge
+
